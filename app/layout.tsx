@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Farhad's b;og",
-  description: "Created by Farhad Karimbayli",
+  description: "A personal blog about life, learning, and Star Wars.",
 };
 
 export default function RootLayout({
