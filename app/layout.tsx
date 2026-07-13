@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import BackButton from "@/src/components/BackButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Farhad's b;og",
+  title: "Farhad's blog",
   description: "A personal blog about life, learning, and Star Wars.",
 };
 
@@ -27,7 +28,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <BackButton />
+        <div className="min-h-full flex flex-col"> {children}</div>
+      </body>
     </html>
   );
 }
