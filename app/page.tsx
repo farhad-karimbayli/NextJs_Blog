@@ -1,4 +1,6 @@
+import Link from "next/link";
 import LikeArticleButton from "@/src/components/LikeArticleButton";
+import { posts } from "@/src/data/posts";
 
 // ISR: the server renders this blog page and refreshes its cached version
 // after 30 seconds, so static content stays fast while update data is renewed.
@@ -14,23 +16,15 @@ export default function Home() {
     <main>
       <h1>Farhad Blog</h1>
 
-      <article>
-        <h2>My first post</h2>
-        <p>This is a short placeholder for the first blog article.</p>
-        <LikeArticleButton initialLikes={0} />
-      </article>
-
-      <article>
-        <h2>Learning Next.js</h2>
-        <p>This article will be about my first steps with Next.js.</p>
-        <LikeArticleButton initialLikes={0} />
-      </article>
-
-      <article>
-        <h2>About my life</h2>
-        <p>Here I will write stories, thoughts, and personal notes.</p>
-        <LikeArticleButton initialLikes={0} />
-      </article>
+      {posts.map((post) => (
+        <article key={post.slug}>
+          <Link href={`/blog/${post.slug}`}>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+          </Link>
+          <LikeArticleButton initialLikes={0} />
+        </article>
+      ))}
 
       <section>
         <h2>Latest update</h2>
