@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import BackButton from "@/src/components/BackButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +27,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body>
-        <BackButton />
-        <div className="min-h-full flex flex-col"> {children}</div>
+      <body className="min-h-screen bg-[#090b10] font-sans text-slate-100">
+        <div className="flex min-h-screen flex-col">{children}</div>
       </body>
     </html>
   );
